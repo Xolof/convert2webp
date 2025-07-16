@@ -22,7 +22,6 @@ if (! defined('ABSPATH')) {
  */
 class Converter
 {
-	protected const SETTINGS_PAGE_URL = 'admin.php?page=render_imo_settings';
 	protected ResultsFetcher $results_fetcher;
 	protected ImoLogger $logger;
 	protected Db $db;
