@@ -44,6 +44,7 @@ class Converter
 
 		foreach ($images as $index => $imageUrl) {
 			$this->logger->log("Converting image " . $index + 1 . " out of $imageCount.");
+			$this->logger->log($imageUrl);
 			$this->convertImage($imageUrl);
 		}
 	}
@@ -68,6 +69,7 @@ class Converter
 		} else {
 			throw new \Exception("The image format of this file can not be handled: $imageUrl");
 		};
+
 		imagepalettetotruecolor($img);
 		imagealphablending($img, true);
 		imagesavealpha($img, true);
@@ -87,6 +89,7 @@ class Converter
 		$attachment_id = attachment_url_to_postid($attachmentUrl);
 
 		if ($attachment_id) {
+			$this->logger->log("Generating attachment data.");
 			$attach_data = wp_generate_attachment_metadata($attachment_id, $imageUrlAfter);
 			wp_update_attachment_metadata($attachment_id, $attach_data);
 		}
