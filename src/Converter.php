@@ -93,7 +93,7 @@ class Converter
             wp_update_attachment_metadata($attachment_id, $attach_data);
         }
 
-        $this->db->search_replace($filenameBefore, $filenameAfter);
+        $this->db->searchReplace($filenameBefore, $filenameAfter);
 
         unlink($imageUrl);
     }
