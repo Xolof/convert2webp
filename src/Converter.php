@@ -84,7 +84,7 @@ class Converter
 		$filenameAfter = htmlspecialchars(end($expl));
 		$filenameAfter = str_replace(' ', '', $filenameAfter);
 
-		$attachmentUrl = str_replace("/var/www/html/web", home_url(), $imageUrl);
+		$attachmentUrl = str_replace($_SERVER['DOCUMENT_ROOT'], home_url(), $imageUrl);
 
 		$attachment_id = attachment_url_to_postid($attachmentUrl);
 
