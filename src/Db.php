@@ -73,19 +73,13 @@ class Db
 
         $this->execute($query, $table, $before, $after);
 
-        $mimetype_query = <<<SQL
+        $mimetypeQuery = <<<SQL
         UPDATE %i
         SET post_mime_type = REPLACE(post_mime_type, CONCAT("image/", "%s"), 'image/webp')
         WHERE guid LIKE CONCAT('%', '%s', '%');
         SQL;
 
-        // Special query for updating the image meta data.
-        $this->db->get_results(
-            $this->db->prepare(
-                $mimetype_query,
-                [$table, $mimetypeBefore, $after]
-            )
-        );
+        $this->executeMetaData($mimetypeQuery, $table, $mimetypeBefore, $after);
     }
 
     /**
@@ -113,19 +107,13 @@ class Db
 
         $this->execute($query, $table, $before, $after);
 
-        $mimetype_query = <<<SQL
+        $mimetypeQuery = <<<SQL
         UPDATE %i
         SET meta_value = REPLACE(meta_value, CONCAT("image/", "%s"), 'image/webp')
         WHERE meta_value LIKE CONCAT('%', '%s', '%');
         SQL;
 
-        // Special query for updating the image meta data.
-        $this->db->get_results(
-            $this->db->prepare(
-                $mimetype_query,
-                [$table, $mimetypeBefore, $after]
-            )
-        );
+        $this->executeMetaData($mimetypeQuery, $table, $mimetypeBefore, $after);
     }
 
     /**
@@ -137,6 +125,23 @@ class Db
             $this->db->prepare(
                 $query,
                 [$table, $before, $after, $before]
+            )
+        );
+    }
+
+    /**
+     * Special query for updating the image meta data.
+     */
+    protected function executeMetaData(
+        string $mimetypeQuery,
+        string $table,
+        string $mimetypeBefore,
+        string $after
+    ): void {
+        $this->db->get_results(
+            $this->db->prepare(
+                $mimetypeQuery,
+                [$table, $mimetypeBefore, $after]
             )
         );
     }
