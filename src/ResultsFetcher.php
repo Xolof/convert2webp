@@ -47,9 +47,11 @@ class ResultsFetcher
 			} else {
 				$extensions = ["jpg", "jpeg", "png"];
 
-				if (in_array(pathinfo($path)['extension'], $extensions)) {
-					$this->result[] = $path;
-				}
+				if (array_key_exists('extension', pathinfo($path))) {
+					if (in_array(pathinfo($path)['extension'], $extensions)) {
+						$this->result[] = $path;
+					}
+				};
 			};
 		}
 	}
