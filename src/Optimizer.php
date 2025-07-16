@@ -141,7 +141,7 @@ class Optimizer
     {
         $main_plugin_file = plugin_dir_path(__DIR__) . 'image-optimizer.php';
 
-        registerDeactivationHook(
+        register_deactivation_hook(
             plugin_basename($main_plugin_file),
             function () {
                 $options = array(
