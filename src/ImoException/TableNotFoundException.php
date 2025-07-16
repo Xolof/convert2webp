@@ -9,7 +9,7 @@
 namespace ImageOptimizer\ImoException;
 
 if (! defined('ABSPATH')) {
-	exit;
+    exit;
 }
 
 /**
@@ -17,4 +17,6 @@ if (! defined('ABSPATH')) {
  *
  * An exception to be thrown when a database table does not exist.
  */
-class TableNotFoundException extends \Exception {}
+class TableNotFoundException extends \Exception
+{
+}

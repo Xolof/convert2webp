@@ -11,7 +11,7 @@
 namespace ImageOptimizer;
 
 if (! defined('ABSPATH')) {
-	exit;
+    exit;
 }
 
 /**
@@ -21,38 +21,38 @@ if (! defined('ABSPATH')) {
  */
 class ResultsFetcher
 {
-	protected array $result;
+    protected array $result;
 
-	public function __construct()
-	{
-		$this->result = [];
-	}
+    public function __construct()
+    {
+        $this->result = [];
+    }
 
-	public function get_images(): array
-	{
-		$uploadsDir = wp_get_upload_dir()['basedir'];
-		$this->checkDirectory($uploadsDir);
-		return $this->result;
-	}
+    public function getImages(): array
+    {
+        $uploadsDir = wp_get_upload_dir()['basedir'];
+        $this->checkDirectory($uploadsDir);
+        return $this->result;
+    }
 
-	protected function checkDirectory(string $dir): void
-	{
-		$fileNames = array_slice(scandir($dir), 2);
+    protected function checkDirectory(string $dir): void
+    {
+        $fileNames = array_slice(scandir($dir), 2);
 
-		foreach ($fileNames as $fileName) {
-			$path = $dir . "/" . $fileName;
+        foreach ($fileNames as $fileName) {
+            $path = $dir . "/" . $fileName;
 
-			if (is_dir($path)) {
-				$this->checkDirectory($path);
-			} else {
-				$extensions = ["jpg", "jpeg", "png"];
+            if (is_dir($path)) {
+                $this->checkDirectory($path);
+            } else {
+                $extensions = ["jpg", "jpeg", "png"];
 
-				if (array_key_exists('extension', pathinfo($path))) {
-					if (in_array(pathinfo($path)['extension'], $extensions)) {
-						$this->result[] = $path;
-					}
-				};
-			};
-		}
-	}
+                if (array_key_exists('extension', pathinfo($path))) {
+                    if (in_array(pathinfo($path)['extension'], $extensions)) {
+                        $this->result[] = $path;
+                    }
+                };
+            };
+        }
+    }
 }
