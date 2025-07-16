@@ -5,7 +5,7 @@
  *
  * Converts images to webp.
  *
- * @package Forminator Voting System
+ * @package Image Optimizer
  */
 
 namespace ImageOptimizer;

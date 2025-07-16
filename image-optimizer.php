@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name:     Image Optimizer
- * Plugin URI:      https://github.com/xolof/forminator-voting-system
+ * Plugin URI:      https://github.com/xolof/image-optimizer
  * Description:     Simple plugin for optimizing your images.
  * Author:          Olof Johansson
  * Author URI:      https://oljo.xyz

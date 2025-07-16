@@ -5,7 +5,7 @@
  *
  * Fetches votation results from the database.
  *
- * @package Forminator Voting System
+ * @package Image Optimizer
  */
 
 namespace ImageOptimizer;
@@ -29,7 +29,7 @@ class ResultsFetcher
 	}
 
 	public function get_images(): array
-	{	
+	{
 		$uploadsDir = wp_get_upload_dir()['basedir'];
 		$this->checkDirectory($uploadsDir);
 		return $this->result;

@@ -2,7 +2,7 @@
 /**
  * PHPUnit bootstrap file.
  *
- * @package Forminator_voting_system
+ * @package Image_Optimizer
  */
 
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
@@ -29,7 +29,7 @@ require_once "{$_tests_dir}/includes/functions.php";
  * Manually load the plugin being tested.
  */
 function _manually_load_plugin() {
-	require dirname( __DIR__ ) . '/forminator-voting-system.php';
+	require dirname( __DIR__ ) . '/image-optimizer.php';
 }
 
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );

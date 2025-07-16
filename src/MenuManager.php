@@ -54,7 +54,7 @@ class MenuManager {
 	}
 
 	/**
-	 * Get the Forminator forms and render the settings page.
+	 * Get the images and render the settings page.
 	 *
 	 * @return void
 	 */

@@ -2,7 +2,7 @@
 /**
  * Custom logger
  *
- * @package Forminator Voting System
+ * @package Image Optimizer
  */
 
 namespace ImageOptimizer;
