@@ -41,11 +41,22 @@ class Converter
         $images = $this->results_fetcher->getImages();
         $imageCount = count($images);
 
+        $this->logger->clear();
+        $this->logger->log("Starting conversion of images.");
+
         foreach ($images as $index => $imageUrl) {
+            $this->logger->log('');
             $this->logger->log("Converting image " . $index + 1 . " out of $imageCount.");
             $this->logger->log($imageUrl);
-            $this->convertImage($imageUrl);
+            try {
+                $this->convertImage($imageUrl);
+            } catch (\Exception $e) {
+                error_log($e);
+                $this->logger->log("Error when converting $imageUrl. See Wordpress error log for details.");
+            }
         }
+        $this->logger->log('');
+        $this->logger->log("Conversion finished.");
     }
 
     protected function convertImage(string $imageUrl): void
