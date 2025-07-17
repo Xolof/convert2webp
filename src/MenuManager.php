@@ -3,10 +3,10 @@
 /**
  * MenuManager
  *
- * @package Image_Optimizer
+ * @package Convert2Webp
  */
 
-namespace ImageOptimizer;
+namespace Convert2Webp;
 
 if (! defined('ABSPATH')) {
     exit;
@@ -37,33 +37,33 @@ class MenuManager
     public function addMenuPages(): void
     {
         add_menu_page(
-            esc_html__('Image Optimizer', 'imo'),
-            esc_html__('Image Optimizer', 'imo'),
+            esc_html__('Convert 2 Webp', 'c2w'),
+            esc_html__('Convert 2 Webp', 'c2w'),
             'manage_options',
-            'imo',
-            array( $this, 'renderImoSettings' ),
+            'c2w',
+            array( $this, 'renderC2wPage' ),
             'dashicons-images-alt2',
             3
         );
         add_submenu_page(
-            'imo',
-            esc_html__('Image Optimizer', 'imo'),
-            esc_html__('Image Optimizer', 'imo'),
+            'c2w',
+            esc_html__('Convert 2 Webp', 'c2w'),
+            esc_html__('Convert 2 Webp', 'c2w'),
             'manage_options',
-            'renderImoSettings',
-            array( $this, 'renderImoSettings' )
+            'renderC2wPage',
+            array( $this, 'renderC2wPage' )
         );
-        remove_submenu_page('imo', 'imo');
+        remove_submenu_page('c2w', 'c2w');
     }
 
     /**
-     * Get the images and render the settings page.
+     * Get the images and render the admin page.
      *
      * @return void
      */
-    public function renderImoSettings(): void
+    public function renderC2wPage(): void
     {
         $images = $this->results_fetcher->getImages();
-        require_once __DIR__ . '/../templates/settings.php';
+        require_once __DIR__ . '/../templates/page.php';
     }
 }

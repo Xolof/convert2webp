@@ -5,10 +5,10 @@
  *
  * Converts images to webp.
  *
- * @package Image Optimizer
+ * @package Convert2Webp
  */
 
-namespace ImageOptimizer;
+namespace Convert2Webp;
 
 if (! defined('ABSPATH')) {
     exit;
@@ -27,12 +27,12 @@ if (! function_exists('wp_generate_attachment_metadata')) {
 class Converter
 {
     protected ResultsFetcher $results_fetcher;
-    protected ImoLogger $logger;
+    protected Logger $logger;
     protected Db $db;
 
     public function __construct(
         ResultsFetcher $results_fetcher,
-        ImoLogger $logger,
+        Logger $logger,
         Db $db
     ) {
         $this->results_fetcher = $results_fetcher;

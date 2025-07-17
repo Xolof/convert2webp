@@ -3,10 +3,10 @@
 /**
  * Main class.
  *
- * @package Image_Optimizer
+ * @package Convert2Webp
  */
 
-namespace ImageOptimizer;
+namespace Convert2Webp;
 
 if (! defined('ABSPATH')) {
     exit;
@@ -49,14 +49,14 @@ class Optimizer
     }
 
     /**
-     * Process the settings from the admin page.
+     * Process the input from the admin page.
      *
      * @return void
      */
     protected function process(): void
     {
         add_action('rest_api_init', function () {
-            register_rest_route('imo/v1', '/convert/', [
+            register_rest_route('c2w/v1', '/convert/', [
                 'methods' => 'GET',
                 'callback' => function () {
                     $this->converter->convert();
@@ -93,22 +93,22 @@ class Optimizer
             'admin_enqueue_scripts',
             function () {
                 wp_enqueue_style(
-                    'imo-plugin-admin-styles',
-                    plugins_url('../assets/css/imo-admin-styles.css', __FILE__),
+                    'c2w-plugin-admin-styles',
+                    plugins_url('../assets/css/c2w-admin-styles.css', __FILE__),
                     array(),
                     '1.0',
                     'all'
                 );
 
                 wp_enqueue_script(
-                    'imo-ajax',
-                    plugins_url('../assets/js/imo-ajax.js', __FILE__),
+                    'c2w-ajax',
+                    plugins_url('../assets/js/c2w-ajax.js', __FILE__),
                     [],
                     '1.0',
                     true
                 );
 
-                wp_localize_script('imo-ajax', 'imageOptimizer', [
+                wp_localize_script('c2w-ajax', 'Convert2Webp', [
                     'nonce' => wp_create_nonce('wp_rest'),
                     'pluginsUrl' => plugins_url(),
                 ]);

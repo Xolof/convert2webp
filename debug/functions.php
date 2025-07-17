@@ -12,7 +12,7 @@
  * @param array $debug_array
  * @return void
  */
-function imo_ha($debug_array): void
+function c2w_ha($debug_array): void
 {
     ini_set('highlight.comment', '#008000');
     ini_set('highlight.default', '#ccc');
@@ -20,7 +20,7 @@ function imo_ha($debug_array): void
     ini_set('highlight.keyword', '#6868f9; font-weight: bold');
     ini_set('highlight.string', '#8cf580');
 
-    echo "<pre class='imo-pre'>";
+    echo "<pre class='c2w-pre'>";
 
     highlight_string("<?php\n" . var_export($debug_array, true) . ";\n?>");
 
@@ -28,7 +28,7 @@ function imo_ha($debug_array): void
 
     echo <<<STYLE
         <style>
-            .imo-pre {
+            .c2w-pre {
                 font-size: 0.9rem;
                 font-weight: 400;
                 background: #101010;

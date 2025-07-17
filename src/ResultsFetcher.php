@@ -5,10 +5,10 @@
  *
  * Fetches votation results from the database.
  *
- * @package Image Optimizer
+ * @package Convert2Webp
  */
 
-namespace ImageOptimizer;
+namespace Convert2Webp;
 
 if (! defined('ABSPATH')) {
     exit;

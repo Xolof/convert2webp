@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Image Optimization page
+ * Admin page for Convert 2 Webp.
  *
- * @package Image_Optimizer
+ * @package Convert2Webp
  */
 
 if (! defined('ABSPATH')) {
@@ -12,11 +12,11 @@ if (! defined('ABSPATH')) {
 
 ?>
 
-<main class="imoMain">
-    <h1><?php echo esc_html__('Image Optimizer', 'imo'); ?></h1>
+<main class="c2wMain">
+    <h1><?php echo esc_html__('Convert 2 Webp', 'c2w'); ?></h1>
 
     <?php if (current_user_can('manage_options')) : ?>
-        <?php $imo_nonce = wp_create_nonce('imo_nonce'); ?>
+        <?php $c2w_nonce = wp_create_nonce('c2w_nonce'); ?>
 
         <?php $imageCount = count($images) ?>
 
@@ -38,6 +38,6 @@ if (! defined('ABSPATH')) {
         <?php endif; ?>
 
     <?php else : ?>
-        <p><?php echo esc_html__('You are not authorized to perform this operation.', 'imo'); ?></p>
+        <p><?php echo esc_html__('You are not authorized to perform this operation.', 'c2w'); ?></p>
     <?php endif; ?>
 </main>

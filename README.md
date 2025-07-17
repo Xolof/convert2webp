@@ -1,6 +1,6 @@
-[![CI](https://github.com/Xolof/image-optimizer/actions/workflows/ci.yml/badge.svg)](https://github.com/Xolof/image-optimizer/actions/workflows/ci.yml)
+[![CI](https://github.com/Xolof/convert2webp/actions/workflows/ci.yml/badge.svg)](https://github.com/Xolof/convert2webp/actions/workflows/ci.yml)
 
-# Image Optimizer
+# Convert 2 Webp
 
 * Tags: images, webp, convert
 * Requires at least: 6.8.1
@@ -9,9 +9,9 @@
 * Stable tag: 0.1.0
 * License: MIT
 * License URI: https://opensource.org/license/MIT
-* Text Domain: imo
+* Text Domain: c2w
 
-A simple plugin for optimizing images.
+A minimalist plugin for converting JPEG and PNG images to WEBP. One click, no bloat.
 
 ## Description
 

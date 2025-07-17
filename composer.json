@@ -1,6 +1,6 @@
 {
-  "name": "xolof/image_optimizer",
-  "description": "A simple plugin for optimizing images.",
+  "name": "xolof/convert2webp",
+  "description": "A minimalist plugin for converting JPEG and PNG images to WEBP. One click, no bloat.",
   "license": "MIT",
   "authors": [
     {

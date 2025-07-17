@@ -3,10 +3,10 @@
 /**
  * Class TableNotFoundException
  *
- * @package Image Optimizer
+ * @package Convert2Webp
  */
 
-namespace ImageOptimizer\ImoException;
+namespace Convert2Webp\C2wException;
 
 if (! defined('ABSPATH')) {
     exit;

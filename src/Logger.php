@@ -3,19 +3,19 @@
 /**
  * Custom logger
  *
- * @package Image Optimizer
+ * @package Convert2Webp
  */
 
-namespace ImageOptimizer;
+namespace Convert2Webp;
 
 if (! defined('ABSPATH')) {
     exit;
 }
 
 /**
- * imo Custom Logger
+ * c2w Custom Logger
  */
-class ImoLogger
+class Logger
 {
     /**
      * Write message to a log file.
@@ -27,7 +27,7 @@ class ImoLogger
     {
         $path             = plugin_dir_path(__DIR__);
         $message          = wp_json_encode($message) . "\n";
-        $destination_file = $path . 'imo.log';
+        $destination_file = $path . 'c2w.log';
         error_log(htmlspecialchars($message), 3, $destination_file); // phpcs:ignore
     }
 
@@ -39,7 +39,7 @@ class ImoLogger
     public static function clear(): void
     {
         $path             = plugin_dir_path(__DIR__);
-        $destination_file = $path . 'imo.log';
+        $destination_file = $path . 'c2w.log';
         unlink($destination_file);
     }
 }

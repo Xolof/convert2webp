@@ -1,5 +1,5 @@
-const nonce = imageOptimizer.nonce;
-const pluginsUrl = imageOptimizer.pluginsUrl;
+const nonce = Convert2Webp.nonce;
+const pluginsUrl = Convert2Webp.pluginsUrl;
 const convertButton = document.getElementById('convert-button');
 const imagesToBeConvertedInfo = document.querySelector(".imagesToBeConvertedInfo");
 const loader = document.querySelector(".loader");
@@ -20,7 +20,7 @@ async function fetchPrivateData() {
 
         const interval = setInterval(showLogData, 50);
 
-        const response = await fetch('/wp-json/imo/v1/convert', {
+        const response = await fetch('/wp-json/c2w/v1/convert', {
             method: 'GET',
             headers: {
                 'X-WP-Nonce': nonce,
@@ -47,7 +47,7 @@ async function fetchPrivateData() {
 async function showLogData() {
     const logDiv = document.querySelector('.logDiv');
 
-    const url = pluginsUrl + "/image_optimizer/imo.log";
+    const url = pluginsUrl + "/convert2webp/c2w.log";
     try {
         const response = await fetch(url, {cache: "no-store"});
         if (!response.ok) {
@@ -62,7 +62,7 @@ async function showLogData() {
             .replace(/\n/gi, "<br>")
             .replace(
                 /(Error.+details.)/,
-                `<div class='imoLogError'>$1</div>
+                `<div class='c2wLogError'>$1</div>
             `);
 
         logDiv.innerHTML = text;

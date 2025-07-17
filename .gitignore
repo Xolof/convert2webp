@@ -7,6 +7,6 @@ vendor/
 *.tar.gz
 *.zip
 TODO.md
-imo.log
+c2w.log
 .phpunit.result.cache
 coverage/

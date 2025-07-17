@@ -1,7 +1,7 @@
 <?php
 
 spl_autoload_register(function ($class) {
-    $prefix = 'ImageOptimizer\\';
+    $prefix = 'Convert2Webp\\';
     $base_dir = __DIR__ . '/src/';
     $len = strlen($prefix);
     if (strncmp($prefix, $class, $len) !== 0) {

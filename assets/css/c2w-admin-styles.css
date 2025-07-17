@@ -55,13 +55,13 @@
     line-break: anywhere;
 }
 
-.imoMain {
+.c2wMain {
     padding: 11px 15px;
     font-size: 14px;
     margin: 10px 20px 0 2px;
 }
 
-.imoLogError {
+.c2wLogError {
     background: #ff8484ff;
     color: #000;
     padding: 0.4em;

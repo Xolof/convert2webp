@@ -26,7 +26,7 @@ jobs:
         run: composer install --prefer-dist --no-progress
     
       - name: Run PhpCS
-        run: vendor/bin/phpcs -ps src/ debug/ templates/ image-optimizer.php 
+        run: vendor/bin/phpcs -ps src/ debug/ templates/ convert2webp.php 
 
       - name: Run PhpStan
         run: vendor/bin/phpstan analyse

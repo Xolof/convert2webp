@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Plugin Name:     Image Optimizer
- * Plugin URI:      https://github.com/xolof/image-optimizer
- * Description:     Simple plugin for optimizing your images.
+ * Plugin Name:     Convert2Webp
+ * Plugin URI:      https://github.com/xolof/convert2webp
+ * Description:     A minimalist plugin for converting JPEG and PNG images to WEBP. One click, no bloat.
  * Author:          Olof Johansson
  * Author URI:      https://oljo.xyz
- * Text Domain:     imo
+ * Text Domain:     c2w
  * Domain Path:     /languages
  * Version:         0.1.0
  *
- * @package         Image_Optimizer
+ * @package         Convert2Webp
  */
 
 if (! defined('ABSPATH')) {
@@ -20,14 +20,14 @@ if (! defined('ABSPATH')) {
 require_once __DIR__ . '/autoload.php';
 require_once __DIR__ . '/debug/functions.php';
 
-use ImageOptimizer\Optimizer;
-use ImageOptimizer\Db;
-use ImageOptimizer\ResultsFetcher;
-use ImageOptimizer\MenuManager;
-use ImageOptimizer\ImoLogger;
-use ImageOptimizer\Converter;
+use Convert2Webp\Optimizer;
+use Convert2Webp\Db;
+use Convert2Webp\ResultsFetcher;
+use Convert2Webp\MenuManager;
+use Convert2Webp\Logger;
+use Convert2Webp\Converter;
 
-$logger                = new ImoLogger();
+$logger                = new Logger();
 $db                    = new Db();
 $results_fetcher       = new ResultsFetcher();
 $converter             = new Converter($results_fetcher, $logger, $db);

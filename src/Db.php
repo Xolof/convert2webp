@@ -3,12 +3,12 @@
 /**
  * Db
  *
- * @package Image Optimizer
+ * @package Convert2Webp
  */
 
-namespace ImageOptimizer;
+namespace Convert2Webp;
 
-use ImageOptimizer\ImoException\TableNotFoundException;
+use Convert2Webp\C2wException\TableNotFoundException;
 
 if (! defined('ABSPATH')) {
     exit;
