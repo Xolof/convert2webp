@@ -14,6 +14,10 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
+if (! function_exists('wp_generate_attachment_metadata')) {
+    include(ABSPATH . 'wp-admin/includes/image.php');
+}
+
 /**
  * Converter
  *
