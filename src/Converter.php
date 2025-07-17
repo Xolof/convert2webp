@@ -65,12 +65,6 @@ class Converter
 
     protected function convertImage(string $imageUrl): void
     {
-        // TODO:
-        // Write to the log here.
-        // New log file for each run.
-        // After the job has finished we delete the old log files.
-        // We can keep the latest log files.
-
         if (pathinfo($imageUrl)['extension'] === "jpg") {
             $img = imagecreatefromjpeg($imageUrl);
             $imageUrlAfter = str_replace(".jpg", ".webp", $imageUrl);
