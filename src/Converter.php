@@ -59,6 +59,7 @@ class Converter
                 error_log($e);
                 $this->logger->log("Error when converting $imageUrl. See Wordpress error log for details.");
             }
+            sleep(1);
         }
         $this->logger->log('');
         $this->logger->log("Conversion finished.");
