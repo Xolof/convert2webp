@@ -42,6 +42,7 @@ class Converter
 
     public function convert(): void
     {
+        set_time_limit(0);
         $images = $this->results_fetcher->getImages();
         $imageCount = count($images);
 
