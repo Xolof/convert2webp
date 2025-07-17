@@ -43,7 +43,6 @@ class Optimizer
      */
     public function init(): void
     {
-        $this->loadTextdomain();
         $this->addMenuPages();
         $this->process();
         $this->addStyles();
@@ -114,23 +113,6 @@ class Optimizer
                     'pluginsUrl' => plugins_url(),
                 ]);
             }
-        );
-    }
-
-    /**
-     * Load the plugin's textdomain which is needed for translations.
-     *
-     * @return void
-     */
-    protected function loadTextdomain(): void
-    {
-        add_action(
-            'plugins_loaded',
-            function () {
-                $path   = plugin_dir_path(__DIR__) . 'languages';
-                $loaded = load_plugin_textdomain('imo', false, plugin_basename($path));
-            },
-            5
         );
     }
 }

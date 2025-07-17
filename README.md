@@ -26,12 +26,6 @@ A simple plugin for optimizing images.
 
 ## Useful commands
 
-### Make a new pot file for translations:
-`wp i18n make-pot . languages/my-plugin.pot`
-
-### Compile translations
-`./compile_translations.sh`
-
 ### Lint
 `./lint.sh`
 
