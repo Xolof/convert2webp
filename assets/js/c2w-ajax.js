@@ -18,7 +18,7 @@ async function fetchPrivateData() {
         resultsDiv.textContent = "Converting...";
         loader.style.display = "block";
 
-        const interval = setInterval(showLogData, 50);
+        const interval = setInterval(showLogData, 1000);
 
         const response = await fetch('/wp-json/c2w/v1/convert', {
             method: 'GET',
