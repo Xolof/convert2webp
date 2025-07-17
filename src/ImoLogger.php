@@ -28,7 +28,7 @@ class ImoLogger
         $path             = plugin_dir_path(__DIR__);
         $message          = wp_json_encode($message) . "\n";
         $destination_file = $path . 'imo.log';
-		error_log( $message, 3, $destination_file ); // phpcs:ignore
+        error_log(htmlspecialchars($message), 3, $destination_file); // phpcs:ignore
     }
 
     /**
