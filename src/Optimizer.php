@@ -58,7 +58,21 @@ class Optimizer
      */
     protected function process(): void
     {
-        add_action('admin_post_imo_form_response', array($this->converter, 'convert'));
+        add_action('rest_api_init', function () {
+            register_rest_route('imo/v1', '/convert/', [
+                'methods' => 'GET',
+                'callback' => function () {
+                    $this->converter->convert();
+                    return new \WP_REST_Response(['message' => 'Image processing finished.'], 200);
+                },
+                'permission_callback' => function () {
+                    if (is_user_logged_in() && current_user_can('edit_posts')) {
+                        return true;
+                    }
+                    return new \WP_Error('rest_forbidden', 'Permission denied.', ['status' => 401]);
+                },
+            ]);
+        });
     }
 
     /**
