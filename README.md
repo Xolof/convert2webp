@@ -14,10 +14,11 @@
 A minimalist plugin for converting JPEG and PNG images to WEBP. One click, no bloat.
 
 ## Description
-
+This plugin lets you convert all of your JPEG and PNG files to WEBP with one click.
 
 ## Installation
-
+1. Upload this directory to your Wordpress plugins directory.
+2. Activate the plugin in the 'Plugins' menu in WordPress
 
 ## Changelog
 
