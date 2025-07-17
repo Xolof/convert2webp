@@ -49,7 +49,7 @@ async function showLogData() {
 
     const url = pluginsUrl + "/image_optimizer/imo.log";
     try {
-        const response = await fetch(url);
+        const response = await fetch(url, {cache: "no-store"});
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
         }
