@@ -63,12 +63,7 @@ async function showLogData() {
 
         text = text.replace(
             /(Error.+details.)/,
-            `<div style='
-                background: #ff8484ff;
-                color: #000;
-                padding: 0.4em;
-                border-radius: 4px;
-            '>$1</div>
+            `<div class='imoLogError'>$1</div>
             `);
 
         logDiv.innerHTML = text;

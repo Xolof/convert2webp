@@ -60,3 +60,10 @@
     font-size: 14px;
     margin: 10px 20px 0 2px;
 }
+
+.imoLogError {
+    background: #ff8484ff;
+    color: #000;
+    padding: 0.4em;
+    border-radius: 4px;
+}
