@@ -30,4 +30,16 @@ class ImoLogger
         $destination_file = $path . 'imo.log';
 		error_log( $message, 3, $destination_file ); // phpcs:ignore
     }
+
+    /**
+     * Delete the log file.
+     *
+     * @return void
+     */
+    public static function clear(): void
+    {
+        $path             = plugin_dir_path(__DIR__);
+        $destination_file = $path . 'imo.log';
+        unlink($destination_file);
+    }
 }
