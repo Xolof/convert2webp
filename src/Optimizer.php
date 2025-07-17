@@ -108,9 +108,13 @@ class Optimizer
                     true
                 );
 
+                $pluginDirPathExploded = explode("/", plugin_dir_path(__DIR__));
+                $pluginDirName = $pluginDirPathExploded[count($pluginDirPathExploded) - 2];
+                $pluginDirUrl = plugins_url() . "/" . $pluginDirName;
+
                 wp_localize_script('c2w-ajax', 'Convert2Webp', [
                     'nonce' => wp_create_nonce('wp_rest'),
-                    'pluginsUrl' => plugins_url(),
+                    'pluginDirUrl' => $pluginDirUrl,
                 ]);
             }
         );

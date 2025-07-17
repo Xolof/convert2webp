@@ -1,5 +1,5 @@
 const nonce = Convert2Webp.nonce;
-const pluginsUrl = Convert2Webp.pluginsUrl;
+const pluginDirUrl = Convert2Webp.pluginDirUrl;
 const convertButton = document.getElementById('convert-button');
 const imagesToBeConvertedInfo = document.querySelector(".imagesToBeConvertedInfo");
 const loader = document.querySelector(".loader");
@@ -47,7 +47,7 @@ async function fetchPrivateData() {
 async function showLogData() {
     const logDiv = document.querySelector('.logDiv');
 
-    const url = pluginsUrl + "/convert2webp/c2w.log";
+    const url = pluginDirUrl + "/c2w.log";
     try {
         const response = await fetch(url, {cache: "no-store"});
         if (!response.ok) {
