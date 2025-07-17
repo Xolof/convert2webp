@@ -125,21 +125,21 @@ class Optimizer
                     '1.0',
                     'all'
                 );
+
+                wp_enqueue_script(
+                    'imo-ajax',
+                    plugins_url('../assets/js/imo-ajax.js', __FILE__),
+                    [],
+                    '1.0',
+                    true
+                );
+
+                wp_localize_script('imo-ajax', 'imageOptimizer', [
+                    'nonce' => wp_create_nonce('wp_rest'),
+                    'pluginsUrl' => plugins_url(),
+                ]);
             }
         );
-
-        wp_enqueue_script(
-            'imo-ajax',
-            plugins_url('../assets/js/imo-ajax.js', __FILE__),
-            [],
-            '1.0',
-            true
-        );
-
-        wp_localize_script('imo-ajax', 'imageOptimizer', [
-            'nonce' => wp_create_nonce('wp_rest'),
-            'pluginsUrl' => plugins_url(),
-        ]);
     }
 
     /**
