@@ -47,7 +47,6 @@ class Optimizer
         $this->addMenuPages();
         $this->process();
         $this->addStyles();
-        $this->registerDeactivationHook();
     }
 
     /**
@@ -132,32 +131,6 @@ class Optimizer
                 $loaded = load_plugin_textdomain('imo', false, plugin_basename($path));
             },
             5
-        );
-    }
-
-    /**
-     * Register actions to execute on deactivation of the plugin.
-     *
-     * @return void
-     */
-    protected function registerDeactivationHook(): void
-    {
-        $main_plugin_file = plugin_dir_path(__DIR__) . 'image-optimizer.php';
-
-        register_deactivation_hook(
-            plugin_basename($main_plugin_file),
-            function () {
-                $options = array(
-                    'imo_settings',
-                    'imo_db_version',
-                );
-
-                foreach ($options as $option) {
-                    if (get_option($option)) {
-                        delete_option($option);
-                    }
-                }
-            }
         );
     }
 }
