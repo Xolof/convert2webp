@@ -46,7 +46,6 @@ class Optimizer
         $this->loadTextdomain();
         $this->addMenuPages();
         $this->process();
-        $this->setAdminNotices();
         $this->addStyles();
         $this->registerDeactivationHook();
     }
@@ -83,29 +82,6 @@ class Optimizer
     protected function addMenuPages(): void
     {
         add_action('admin_menu', array($this->menu_manager, 'addMenuPages'));
-    }
-
-    /**
-     * Define a custom flash message.
-     *
-     * @return void
-     */
-    protected function setAdminNotices(): void
-    {
-        add_action(
-            'admin_notices',
-            function () {
-                $flash = get_transient('imo_flash_message');
-                if ($flash) {
-                    printf(
-                        '<div class="notice notice-%s is-dismissible"><p>%s</p></div>',
-                        esc_attr($flash['type']),
-                        esc_html($flash['message'])
-                    );
-                    delete_transient('imo_flash_message');
-                }
-            }
-        );
     }
 
     /**
