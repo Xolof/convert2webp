@@ -22,7 +22,6 @@ require_once __DIR__ . '/debug/functions.php';
 
 use ImageOptimizer\Optimizer;
 use ImageOptimizer\Db;
-use ImageOptimizer\Processor;
 use ImageOptimizer\ResultsFetcher;
 use ImageOptimizer\MenuManager;
 use ImageOptimizer\ImoLogger;
@@ -32,11 +31,10 @@ $logger                = new ImoLogger();
 $db                    = new Db();
 $results_fetcher       = new ResultsFetcher();
 $converter             = new Converter($results_fetcher, $logger, $db);
-$processor             = new Processor($converter);
 $menu_manager          = new MenuManager($results_fetcher);
 
 $image_optimizer = new Optimizer(
-    $processor,
+    $converter,
     $menu_manager
 );
 

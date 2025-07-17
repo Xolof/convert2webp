@@ -19,20 +19,20 @@ if (! defined('ABSPATH')) {
  */
 class Optimizer
 {
-    protected Processor $processor;
+    protected Converter $converter;
     protected MenuManager $menu_manager;
 
     /**
      * Constructor
      *
-     * @param Processor    $processor
+     * @param Converter    $converter
      * @param MenuManager  $menu_manager
      */
     public function __construct(
-        Processor $processor,
+        Converter $converter,
         MenuManager $menu_manager,
     ) {
-        $this->processor    = $processor;
+        $this->converter    = $converter;
         $this->menu_manager = $menu_manager;
     }
 
@@ -58,7 +58,7 @@ class Optimizer
      */
     protected function process(): void
     {
-        add_action('admin_post_imo_form_response', array($this->processor, 'process'));
+        add_action('admin_post_imo_form_response', array($this->converter, 'convert'));
     }
 
     /**
