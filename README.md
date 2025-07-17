@@ -22,16 +22,10 @@ This plugin lets you convert all of your JPEG and PNG files to WEBP with one cli
 
 ## Changelog
 
-### 0.1.0
+### 0.0.1
 * First version.
 
 ## Useful commands
 
 ### Lint
 `./lint.sh`
-
-### Install tests
-`bin/install-wp-tests.sh`
-
-### Run tests
-`vendor/bin/phpunit --verbose --coverage-html coverage`
