@@ -71,7 +71,7 @@ async function showLogData() {
             '>$1</div>
             `);
 
-        logDiv.innerHTML = text
+        logDiv.innerHTML = text;
 
     } catch (error) {
         console.error(error.message);
