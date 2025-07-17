@@ -1,0 +1,62 @@
+.loader {
+    display: none;
+    position: relative;
+    height: 12px;
+    width: 80%;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 1em;
+}
+
+.loader:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: #2271b1;
+    animation: 6s prog ease-in infinite;
+}
+
+@keyframes prog {
+    to {
+        width: 100%;
+    }
+}
+
+.resultsDiv {
+    margin-top: 1em;
+    margin-right: 1em;
+    border: 2px solid blue;
+    border-radius: 4px;
+    padding: 0 1em 1em 1em;
+    line-break: anywhere;
+}
+
+.resultsDiv.inProgress {
+    padding: 1em;
+}
+
+.resultsDiv.done {
+    border: 2px solid green;
+    font-weight: bold;
+    padding: 1em;
+}
+
+.logDiv {
+    margin-top: 1em;
+    margin-right: 1em;
+    border: 2px solid teal;
+    border-radius: 4px;
+    padding: 1em;
+    display: none;
+    line-break: anywhere;
+}
+
+.imoMain {
+    padding: 11px 15px;
+    font-size: 14px;
+    margin: 10px 20px 0 2px;
+}
