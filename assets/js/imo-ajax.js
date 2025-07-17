@@ -59,11 +59,10 @@ async function showLogData() {
         logDiv.innerHTML = "";
         text = text.replace(/&quot;/gi, '')
             .replace(/\\\//gi, '/')
-            .replace(/\n/gi, "<br>");
-
-        text = text.replace(
-            /(Error.+details.)/,
-            `<div class='imoLogError'>$1</div>
+            .replace(/\n/gi, "<br>")
+            .replace(
+                /(Error.+details.)/,
+                `<div class='imoLogError'>$1</div>
             `);
 
         logDiv.innerHTML = text;
@@ -72,7 +71,6 @@ async function showLogData() {
         console.error(error.message);
     }
 }
-
 
 if (convertButton) {
     convertButton.addEventListener('click', fetchPrivateData);
