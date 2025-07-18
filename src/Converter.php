@@ -40,8 +40,12 @@ class Converter
         $this->db = $db;
     }
 
+    /**
+     * Iterate over the images and convert them.
+     */
     public function convert(): void
     {
+        // Disable time limit for the script.
         set_time_limit(0);
         $images = $this->results_fetcher->getImages();
         $imageCount = count($images);
@@ -57,11 +61,15 @@ class Converter
                 error_log($e);
                 $this->logger->log("Error when converting $imageUrl. See Wordpress error log for details.");
             }
+            // Let PHP sleep to decrease server load.
             sleep(1);
         }
         $this->logger->log("Conversion finished.");
     }
 
+    /**
+     * Convert an image to WEBP.
+     */
     protected function convertImage(string $imageUrl): void
     {
         if (pathinfo($imageUrl)['extension'] === "jpg") {

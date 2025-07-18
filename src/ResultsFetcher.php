@@ -28,6 +28,9 @@ class ResultsFetcher
         $this->result = [];
     }
 
+    /**
+     * Get images which can be converted in upload directory.
+     */
     public function getImages(): array
     {
         $uploadsDir = wp_get_upload_dir()['basedir'];
@@ -35,6 +38,11 @@ class ResultsFetcher
         return $this->result;
     }
 
+    /**
+     * Scan directory for files which can be converted
+     * and add them to results.
+     * Call itself on directories.
+     */
     protected function checkDirectory(string $dir): void
     {
         $fileNames = array_slice(scandir($dir), 2);
