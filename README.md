@@ -6,7 +6,7 @@
 * Requires at least: 6.8.1
 * Tested up to: 6.8.1
 * Requires PHP: 8.3.0
-* Stable tag: 0.1.0
+* Stable tag: 0.0.1
 * License: MIT
 * License URI: https://opensource.org/license/MIT
 * Text Domain: c2w
