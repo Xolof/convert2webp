@@ -96,7 +96,7 @@ class Optimizer
                     'c2w-plugin-admin-styles',
                     plugins_url('../assets/css/c2w-admin-styles.css', __FILE__),
                     array(),
-                    '1.0',
+                    CONVERT2WEBP_VERSION,
                     'all'
                 );
 
@@ -104,7 +104,7 @@ class Optimizer
                     'c2w-ajax',
                     plugins_url('../assets/js/c2w-ajax.js', __FILE__),
                     [],
-                    '1.0',
+                    CONVERT2WEBP_VERSION,
                     true
                 );
 

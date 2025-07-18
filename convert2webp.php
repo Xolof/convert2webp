@@ -27,6 +27,9 @@ use Convert2Webp\MenuManager;
 use Convert2Webp\Logger;
 use Convert2Webp\Converter;
 
+$plugin_data = get_file_data(__FILE__, array('Version' => 'Version'), false);
+define('CONVERT2WEBP_VERSION', $plugin_data['Version']);
+
 $logger                = new Logger();
 $db                    = new Db();
 $results_fetcher       = new ResultsFetcher();
