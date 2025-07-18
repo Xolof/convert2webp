@@ -3,11 +3,11 @@ const pluginDirUrl = Convert2Webp.pluginDirUrl;
 const convertButton = document.getElementById('convert-button');
 const imagesToBeConvertedInfo = document.querySelector(".imagesToBeConvertedInfo");
 const loader = document.querySelector(".loader");
+const resultsDiv = document.querySelector('.resultsDiv');
+const logDiv = document.querySelector('.logDiv');
+let interval;
 
-async function fetchPrivateData() {
-    const resultsDiv = document.querySelector('.resultsDiv');
-    const logDiv = document.querySelector('.logDiv');
-
+async function startConversion() {
     logDiv.innerHTML = "";
     convertButton.style.display = "none";
     imagesToBeConvertedInfo.style.display = "none";
@@ -18,7 +18,7 @@ async function fetchPrivateData() {
         resultsDiv.textContent = "Converting...";
         loader.style.display = "block";
 
-        const interval = setInterval(showLogData, 1000);
+        interval = setInterval(showLogData, 1000);
 
         const response = await fetch('/wp-json/c2w/v1/convert', {
             method: 'GET',
@@ -34,44 +34,55 @@ async function fetchPrivateData() {
 
         const data = await response.json();
         console.log(data);
-        loader.style.display = "none";
-        resultsDiv.innerHTML = "";
-        resultsDiv.textContent = data.message;
-        resultsDiv.classList.add("done");
-        clearInterval(interval);
+        showProcessingFinished();
+        stopFetchingProgressData();
     } catch (error) {
         console.error('Error:', error.message);
     }
 }
 
 async function showLogData() {
-    const logDiv = document.querySelector('.logDiv');
-
-    const url = pluginDirUrl + "/c2w.log";
+    const url = pluginDirUrl + "/c2w.log.json";
     try {
-        const response = await fetch(url, {cache: "no-store"});
+        const response = await fetch(url, { cache: "no-store" });
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
         }
 
-        let text = await response.text();
+        let res = await response.json();
         logDiv.style.display = "block";
         logDiv.innerHTML = "";
-        text = text.replace(/&quot;/gi, '')
-            .replace(/\\\//gi, '/')
-            .replace(/\n/gi, "<br>")
-            .replace(
-                /(Error.+details.)/,
-                `<div class='c2wLogError'>$1</div>
-            `);
 
-        logDiv.innerHTML = text;
+        res = res.reverse();
+        res.forEach(item => {
+            para = document.createElement("p");
+            para.textContent = item.message;
+            logDiv.appendChild(para);
 
+        });
+
+        const finished = res.filter(item => item.message === "Conversion finished.").lenght;
+
+        if (finished) {
+            showProcessingFinished();
+            stopFetchingProgressData();
+        };
     } catch (error) {
         console.error(error.message);
     }
 }
 
 if (convertButton) {
-    convertButton.addEventListener('click', fetchPrivateData);
+    convertButton.addEventListener('click', startConversion);
+}
+
+function stopFetchingProgressData() {
+    clearInterval(interval);
+}
+
+function showProcessingFinished() {
+    loader.style.display = "none";
+    resultsDiv.innerHTML = "";
+    resultsDiv.textContent = "Image processing finished.";
+    resultsDiv.classList.add("done");
 }
