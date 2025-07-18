@@ -50,9 +50,7 @@ class Converter
         $this->logger->log("Starting conversion of images.");
 
         foreach ($images as $index => $imageUrl) {
-            $this->logger->log('');
-            $this->logger->log("Converting image " . $index + 1 . " out of $imageCount.");
-            $this->logger->log($imageUrl);
+            $this->logger->log("Converting image " . $index + 1 . " out of $imageCount: $imageUrl");
             try {
                 $this->convertImage($imageUrl);
             } catch (\Exception $e) {
@@ -61,7 +59,6 @@ class Converter
             }
             sleep(1);
         }
-        $this->logger->log('');
         $this->logger->log("Conversion finished.");
     }
 
