@@ -57,9 +57,10 @@ class Converter
         ]);
 
         foreach ($images as $index => $imageUrl) {
+            $imageUrl = htmlentities($imageUrl, ENT_QUOTES, 'UTF-8');
             $currentImageNumber = $index + 1;
             $this->logger->log([
-                "message" => "Converting image " . $currentImageNumber . " out of $imageCount: $imageUrl",
+                "message" => "Converting image $currentImageNumber out of $imageCount: $imageUrl",
                 "type" => "c2wLogInfo",
                 "currentImageNumber" => $currentImageNumber,
                 "imageCount" => $imageCount
