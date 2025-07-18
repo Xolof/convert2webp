@@ -23,7 +23,7 @@ class Logger
      * @param string $message
      * @return void
      */
-    public static function log(string $message): void
+    public static function log(string $message, string $type): void
     {
         $path             = plugin_dir_path(__DIR__);
         $logFile          = $path . 'c2w.log.json';
@@ -35,7 +35,7 @@ class Logger
         }
 
         $message          = htmlspecialchars($message);
-        $messageItem      = ["message" => "$message"];
+        $messageItem      = ["message" => "$message", "type" => $type];
         $logContent[]     = $messageItem;
         file_put_contents($logFile, wp_json_encode($logContent));
     }

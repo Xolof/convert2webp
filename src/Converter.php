@@ -51,20 +51,20 @@ class Converter
         $imageCount = count($images);
 
         $this->logger->clear();
-        $this->logger->log("Starting conversion of images.");
+        $this->logger->log("Starting conversion of images.", "c2wLogInfo");
 
         foreach ($images as $index => $imageUrl) {
-            $this->logger->log("Converting image " . $index + 1 . " out of $imageCount: $imageUrl");
+            $this->logger->log("Converting image " . $index + 1 . " out of $imageCount: $imageUrl", "c2wLogInfo");
             try {
                 $this->convertImage($imageUrl);
             } catch (\Exception $e) {
                 error_log($e);
-                $this->logger->log("Error when converting $imageUrl. See Wordpress error log for details.");
+                $this->logger->log("Error when converting $imageUrl. See Wordpress error log for details.", "c2wLogError");
             }
             // Let PHP sleep to decrease server load.
             sleep(1);
         }
-        $this->logger->log("Conversion finished.");
+        $this->logger->log("Conversion finished.", "c2wLogInfo");
     }
 
     /**
@@ -104,7 +104,7 @@ class Converter
         $attachment_id = attachment_url_to_postid($attachmentUrl);
 
         if ($attachment_id) {
-            $this->logger->log("Generating attachment data.");
+            $this->logger->log("Generating attachment data.", "c2wLogInfo");
             $attach_data = wp_generate_attachment_metadata($attachment_id, $imageUrlAfter);
             wp_update_attachment_metadata($attachment_id, $attach_data);
         }

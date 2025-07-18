@@ -56,6 +56,7 @@ async function showLogData() {
         res = res.reverse();
         res.forEach(item => {
             para = document.createElement("p");
+            para.classList.add(item.type);
             para.textContent = item.message;
             logDiv.appendChild(para);
 
