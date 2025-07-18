@@ -13,11 +13,11 @@ if (! defined('ABSPATH')) {
 }
 
 /**
- * Optimizer
+ * Convert2Webp
  *
  * The main class for the plugin.
  */
-class Optimizer
+class Convert2Webp
 {
     protected Converter $converter;
     protected MenuManager $menu_manager;

@@ -20,7 +20,7 @@ if (! defined('ABSPATH')) {
 require_once __DIR__ . '/autoload.php';
 require_once __DIR__ . '/debug/functions.php';
 
-use Convert2Webp\Optimizer;
+use Convert2Webp\Convert2Webp;
 use Convert2Webp\Db;
 use Convert2Webp\ResultsFetcher;
 use Convert2Webp\MenuManager;
@@ -36,9 +36,9 @@ $results_fetcher       = new ResultsFetcher();
 $converter             = new Converter($results_fetcher, $logger, $db);
 $menu_manager          = new MenuManager($results_fetcher);
 
-$image_optimizer = new Optimizer(
+$c2w = new Convert2Webp(
     $converter,
     $menu_manager
 );
 
-$image_optimizer->init();
+$c2w->init();
