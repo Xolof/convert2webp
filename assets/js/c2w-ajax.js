@@ -59,8 +59,9 @@ async function showLogData() {
             para.classList.add(item.type);
             para.textContent = item.message;
             logDiv.appendChild(para);
-
         });
+
+        updateProgressBar(res);
 
         const finished = res.filter(item => item.message === "Conversion finished.").lenght;
 
@@ -82,8 +83,20 @@ function stopFetchingProgressData() {
 }
 
 function showProcessingFinished() {
-    loader.style.display = "none";
     resultsDiv.innerHTML = "";
     resultsDiv.textContent = "Image processing finished.";
     resultsDiv.classList.add("done");
+}
+
+function updateProgressBar(res) {
+    const latest = res.find(item =>
+        item.currentImageNumber && item.imageCount
+    );
+
+    if (latest) {
+        const currentImageNumber = latest.currentImageNumber;
+        const imageCount = latest.imageCount;
+        const percentDone = Math.round((currentImageNumber / imageCount) * 100);
+        document.querySelector(".bar").style.width = percentDone + "%";
+    }
 }

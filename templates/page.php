@@ -31,7 +31,9 @@ if (! defined('ABSPATH')) {
                     <p><?= esc_html($image) ?></p>
                 <?php endforeach; ?>
             </div>
-            <span class="loader"></span>
+            <span class="loader">
+                <span class="bar"></span>
+            </span>
             <div class="logDiv"></div>
         <?php else : ?>
             <p class="imagesToBeConvertedInfo">There are no Jpg or Png images to be converted.</p>
