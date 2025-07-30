@@ -3,7 +3,7 @@
 /**
  * Class ImageFetcher
  *
- * Fetches votation results from the database.
+ * Fetches image filenames.
  *
  * @package Convert2Webp
  */
@@ -17,7 +17,7 @@ if (! defined('ABSPATH')) {
 /**
  * ImageFetcher
  *
- * Fetches results.
+ * Fetches image filenames.
  */
 class ImageFetcher
 {
