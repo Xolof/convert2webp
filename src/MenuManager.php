@@ -17,16 +17,16 @@ if (! defined('ABSPATH')) {
  */
 class MenuManager
 {
-    protected ResultsFetcher $results_fetcher;
+    protected ImageFetcher $imageFetcher;
 
     /**
      * Constructor
      *
-     * @param ResultsFetcher $results_fetcher
+     * @param ImageFetcher $imageFetcher
      */
-    public function __construct(ResultsFetcher $results_fetcher)
+    public function __construct(ImageFetcher $imageFetcher)
     {
-        $this->results_fetcher = $results_fetcher;
+        $this->imageFetcher = $imageFetcher;
     }
 
     /**
@@ -63,7 +63,7 @@ class MenuManager
      */
     public function renderC2wPage(): void
     {
-        $images = $this->results_fetcher->getImages();
+        $images = $this->imageFetcher->getImages();
         require_once __DIR__ . '/../templates/page.php';
     }
 }

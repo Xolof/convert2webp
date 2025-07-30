@@ -22,7 +22,7 @@ require_once __DIR__ . '/debug/functions.php';
 
 use Convert2Webp\Convert2Webp;
 use Convert2Webp\Db;
-use Convert2Webp\ResultsFetcher;
+use Convert2Webp\ImageFetcher;
 use Convert2Webp\MenuManager;
 use Convert2Webp\Logger;
 use Convert2Webp\Converter;
@@ -32,9 +32,9 @@ define('CONVERT2WEBP_VERSION', $plugin_data['Version']);
 
 $logger                = new Logger();
 $db                    = new Db();
-$results_fetcher       = new ResultsFetcher();
-$converter             = new Converter($results_fetcher, $logger, $db);
-$menu_manager          = new MenuManager($results_fetcher);
+$imageFetcher          = new ImageFetcher();
+$converter             = new Converter($imageFetcher, $logger, $db);
+$menu_manager          = new MenuManager($imageFetcher);
 
 $c2w = new Convert2Webp(
     $converter,

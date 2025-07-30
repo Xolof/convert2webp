@@ -26,16 +26,16 @@ if (! function_exists('wp_generate_attachment_metadata')) {
  */
 class Converter
 {
-    protected ResultsFetcher $results_fetcher;
+    protected ImageFetcher $imageFetcher;
     protected Logger $logger;
     protected Db $db;
 
     public function __construct(
-        ResultsFetcher $results_fetcher,
+        ImageFetcher $imageFetcher,
         Logger $logger,
         Db $db
     ) {
-        $this->results_fetcher = $results_fetcher;
+        $this->imageFetcher = $imageFetcher;
         $this->logger = $logger;
         $this->db = $db;
     }
@@ -47,7 +47,7 @@ class Converter
     {
         // Disable time limit for the script.
         set_time_limit(0);
-        $images = $this->results_fetcher->getImages();
+        $images = $this->imageFetcher->getImages();
         $imageCount = count($images);
 
         $this->logger->clear();

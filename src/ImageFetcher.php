@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class ResultsFetcher
+ * Class ImageFetcher
  *
  * Fetches votation results from the database.
  *
@@ -15,11 +15,11 @@ if (! defined('ABSPATH')) {
 }
 
 /**
- * ResultsFetcher
+ * ImageFetcher
  *
  * Fetches results.
  */
-class ResultsFetcher
+class ImageFetcher
 {
     protected array $result;
 
