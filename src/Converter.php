@@ -101,6 +101,10 @@ class Converter
             throw new \Exception("The image format of this file can not be handled: $imageUrl");
         };
 
+        if (!$img) {
+            throw new \Exception("Could not create image.");
+        }
+
         imagepalettetotruecolor($img);
         imagealphablending($img, true);
         imagesavealpha($img, true);
